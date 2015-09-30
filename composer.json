@@ -1,0 +1,6 @@
+{
+
+    "require": {
+        "symfony/dom-crawler": "2.7.x-dev"
+    }
+}

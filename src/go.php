@@ -4,13 +4,17 @@
 // update this to the path to the "vendor/"
 // directory, relative to this file
 
-require_once __DIR__.'/Yacwl.class.php';
-require_once __DIR__.'/../vendor/autoload.php';
 
+
+require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/Yacwl.class.php';
+
+
+
+use Yacwl\Yacwl;
 use Symfony\Component\DomCrawler\Crawler;
 
-$crawler = new Crawler();
-$crawler->addContent('<html><body><p>Hello World!</p></body></html>');
 
+$yacwl = new Yacwl( new Crawler());
 
-$stop;
+$yacwl->execute();

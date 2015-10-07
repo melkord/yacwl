@@ -4,21 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e51667199aa794048836ba67c71f00ac",
-    "content-hash": "f4e0a96477162d17879cf34d5d7fdd9f",
+    "hash": "a84533cf053416c9c83dcbe55c04ba80",
+    "content-hash": "aa253446c1ad1fe6ae86b418797845bb",
     "packages": [
+        {
+            "name": "symfony/css-selector",
+            "version": "2.0.7",
+            "target-dir": "Symfony/Component/CssSelector",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "4b6e5e7fbe86c68eb4b6b75a3b6ff53d6d6c1017"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/4b6e5e7fbe86c68eb4b6b75a3b6ff53d6d6c1017",
+                "reference": "4b6e5e7fbe86c68eb4b6b75a3b6ff53d6d6c1017",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\CssSelector": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "http://symfony.com",
+            "time": "2011-12-01 07:46:19"
+        },
         {
             "name": "symfony/dom-crawler",
             "version": "2.7.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "8504c08c9d9a3a7110977f53159853e293feac71"
+                "reference": "555deb4d960cc820feec84ed72d39a0c6988665c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/8504c08c9d9a3a7110977f53159853e293feac71",
-                "reference": "8504c08c9d9a3a7110977f53159853e293feac71",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/555deb4d960cc820feec84ed72d39a0c6988665c",
+                "reference": "555deb4d960cc820feec84ed72d39a0c6988665c",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +100,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2015-09-29 12:06:14"
+            "time": "2015-09-30 16:22:59"
         }
     ],
     "packages-dev": [],

@@ -20,6 +20,8 @@ class Yacwl
         $this->finder                                           = $finder;
         $this->s['page_number_selector']                 = 'body > .pagination a:last-child';
         $this->s['page_content_box_selector']           = '#main-content .main-content-inner article .entry-title a';
+        $this->s['single_page_download_link']           = '#page #main-content .download-links a';
+        $this->s['single_page_book_info']           = '#page .book-detail';
 
         $this->sc['url_pagination_structure']          = "http://www.allitebooks.com/page/%s/";
         $this->sc['base_url']                          = 'http://www.allitebooks.com/';
@@ -29,6 +31,7 @@ class Yacwl
         $this->yc['complete_path']                    =  $this->yc['base_path'] . $this->yc['folder_name'];
         $this->yc['current_page']                     = 1;
         $this->yc['file_list_download']               = array();
+        $this->yc['fail_list_download']               = array();
     }
 
     public function execute()
@@ -38,12 +41,13 @@ class Yacwl
 
         $this->set_site_page_number();
 
-        //while( ++$this->yacwl_config['current_page'] < $this->page_numbers ){
+        while( $this->yc['current_page'] < $this->page_numbers ){
             $this->manage_single_page();
+            $this->yc['current_page']++;
             $this->get_current_pagination_page();
-        //}
+        }
 
-        //$this->manage_single_page();
+        $this->manage_single_page();
 
         $this->end();
     }
@@ -58,8 +62,15 @@ class Yacwl
     private function manage_single_page(){
         echo "pagina " . $this->yc['current_page'] . "\n";
 
-        $link_single_pages = $this->finder->filter('#main-content .main-content-inner article .entry-title a');
+        $link_single_pages = $this->finder->filter($this->s['page_content_box_selector']);
         foreach($link_single_pages as $link_single_page){
+            $url = $link_single_page->getAttribute('href');
+            $single_finder = new Crawler( $this->getSinglePage($url));
+            $url_pdf = $single_finder->filter($this->s['single_page_download_link'])->first()->attr('href');
+            $detail_pdf = $single_finder->filter($this->s['single_page_book_info'])->first()->html();
+            array_push($this->yc['file_list_download'],array('url'=>$url_pdf, 'detail'=>$detail_pdf));
+            echo ".";
+
         }
     }
 

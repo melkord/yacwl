@@ -17,4 +17,10 @@ use Symfony\Component\DomCrawler\Crawler;
 
 $yacwl = new Yacwl( new Crawler());
 
-$yacwl->execute();
+//$yacwl->execute();
+
+$json = file_get_contents('/home/melkord/Development/Php/yacwl/result.json');
+
+$yacwl->setup();
+$yacwl->setFileListDownload($json);
+//$yacwl->download();
